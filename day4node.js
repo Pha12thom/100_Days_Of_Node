@@ -16,6 +16,7 @@ const server = http.createServer((req, res) => {
     } else {
         res.statusCode = 404;
         res.end('Page Not Found\n');
+        console.warn("page not found")
     }
 });
 
