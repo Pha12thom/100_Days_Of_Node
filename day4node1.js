@@ -7,19 +7,16 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
     if (req.url === '/') {
-        // Resolve the path to the HTML file
-        const filePath = path.join(__dirname, 'index.html');
 
-        // Read the HTML file
+        const filePath = path.join(__dirname, '/webhtml/index.html');
         fs.readFile(filePath, 'utf8', (err, data) => {
             if (err) {
                 res.statusCode = 500;
                 res.setHeader('Content-Type', 'text/plain');
                 res.end('Internal Server Error\n');
+                console.error("error found during file reading")
                 return;
             }
-
-            // Send the HTML file content
             res.statusCode = 200;
             res.setHeader('Content-Type', 'text/html');
             res.end(data);
