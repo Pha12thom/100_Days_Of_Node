@@ -1,5 +1,4 @@
 const http = require('http');
-
 const hostname = '127.0.0.1';
 const port = 3000;
 
@@ -16,7 +15,7 @@ const server = http.createServer((req, res) => {
     } else {
         res.statusCode = 404;
         res.end('Page Not Found\n');
-        console.warn("page not found")
+        console.warn("Page not found");
     }
 });
 
