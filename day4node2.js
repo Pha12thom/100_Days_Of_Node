@@ -8,9 +8,9 @@ const port = 3000;
 
 const server = http.createServer((req, res) => {
     if (req.method === 'GET' && req.url === '/') {
-        const filePath = path.join(__dirname, 'index.html');
+        const filePath = path.join(__dirname, '/webhtml/index.html');
 
-        fs.readFile(filePath, 'utf8', (err, data) => {
+        fs.readFile(filePath, 'utf8', (err, data) => { //it takes 3 argument,  fs.readfile(path, encode type, (err, data))
             if (err) {
                 res.statusCode = 500;
                 res.setHeader('Content-Type', 'text/plain');
@@ -25,12 +25,11 @@ const server = http.createServer((req, res) => {
     } else if (req.method === 'POST' && req.url === '/submit') {
         let body = '';
 
-        // Listen for data events to read the request body
         req.on('data', chunk => {
             body += chunk.toString();
         });
 
-        // Listen for the end event to finish reading the request body
+
         req.on('end', () => {
             console.log('Received body:', body);
             res.statusCode = 200;
