@@ -32,7 +32,6 @@ const server = http.createServer((req, res) => {
         // Listen for the end event to finish reading the request body
         req.on('end', () => {
             console.log('Received body:', body);
-
             res.statusCode = 200;
             res.setHeader('Content-Type', 'text/plain');
             res.end('POST request received\n');
