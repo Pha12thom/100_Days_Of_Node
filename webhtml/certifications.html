@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #0d0d0d;
+            color: #fff;
+            overflow: auto;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            color: #fff;
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #0d6efd;
+        }
+        
+        .certification-section {
+            margin-bottom: 40px;
+        }
+        
+        .certification {
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .certification img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        
+        .certification h3 {
+            margin-top: 0;
+            color: #0d6efd;
+        }
+        
+        .certification h4 {
+            margin: 0;
+            font-weight: normal;
+            color: #ccc;
+        }
+        
+        .certification p {
+            margin: 5px 0 0 0;
+        }
+        
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .rain .drop {
+            position: absolute;
+            bottom: 100%;
+            width: 2px;
+            height: 15px;
+            margin-bottom: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>My Certifications</h1>
+        <div class="certification-section">
+            <div class="certification">
+                <img src="path-to-certification-image-1.jpg" alt="Certification 1">
+                <div>
+                    <h3>Certification Name 1</h3>
+                    <h4>Issuing Organization | Date</h4>
+                    <p>Description of the certification.</p>
+                </div>
+            </div>
+            <div class="certification">
+                <img src="path-to-certification-image-2.jpg" alt="Certification 2">
+                <div>
+                    <h3>Certification Name 2</h3>
+                    <h4>Issuing Organization | Date</h4>
+                    <p>Description of the certification.</p>
+                </div>
+            </div>
+            <div class="certification">
+                <img src="path-to-certification-image-3.jpg" alt="Certification 3">
+                <div>
+                    <h3>Certification Name 3</h3>
+                    <h4>Issuing Organization | Date</h4>
+                    <p>Description of the certification.</p>
+                </div>
+            </div>
+            <!-- Add more certifications as needed -->
+        </div>
+    </div>
+
+    <div class="rain" id="rain"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const rainContainer = document.getElementById('rain');
+            const createRainDrop = () => {
+                const drop = document.createElement('div');
+                drop.classList.add('drop');
+                drop.style.left = `${Math.random() * 100}%`;
+                drop.style.animationDuration = `${Math.random() * 1 + 0.5}s`;
+                drop.style.animationDelay = `${Math.random() * 0.5}s`;
+                rainContainer.appendChild(drop);
+                setTimeout(() => {
+                    drop.remove();
+                }, 2000);
+            };
+            setInterval(createRainDrop, 50);
+        });
+    </script>
+</body>
+
+</html>
