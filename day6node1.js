@@ -89,6 +89,6 @@ fs.writeFile('day6node2.txt', 'Hello Write file asyncronously again', (err) => {
         if (err) {
             console.log("error while renaming file");
         }
-        console.log("file renamed to ${day6noderename.txt}");
+        console.log("file renamed to day6noderename.txt");
     });
 });
