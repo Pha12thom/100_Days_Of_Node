@@ -18,3 +18,7 @@ fs.writeFile('day6node.txt', 'Hello Write file asyncronously', (err) => {
 
     }
 });
+
+fs.writeFileSync('day6node2.txt', 'Hello Write file syncronously');
+console.log("File written syncronously");
+console.log("Now reading the written text in file");
