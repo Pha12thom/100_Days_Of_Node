@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Hello, World!');
+    res.send('welcome to express middlewares');
 });
 
 app.use((err, req, res, next) => {
