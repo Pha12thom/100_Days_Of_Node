@@ -1,34 +1,22 @@
 const express = require('express');
-const morgan = require('morgan');
+
 const app = express();
 
-// Built-in middleware to parse JSON
+
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.url}`);
+    next();
+});
+
 app.use(express.json());
 
-// Third-party middleware for logging
-app.use(morgan('dev'));
-
-// Application-level middleware
-app.use((req, res, next) => {
-    console.log('Time:', Date.now());
-    next();
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
 });
 
-// Route-level middleware
-app.get('/user/:id', (req, res, next) => {
-    console.log('Request Type:', req.method);
-    next();
-}, (req, res, next) => {
-    console.log('Request URL:', req.originalUrl);
-    next();
-}, (req, res) => {
-    res.send('User Info');
-});
-
-// Error-handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
-    res.status(500).send('Something broke!');
+    res.status(500).send('Internal Server Error');
 });
 
 app.listen(3000, () => {
