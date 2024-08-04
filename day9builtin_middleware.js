@@ -1,14 +1,13 @@
 const express = require('express');
 const app = express();
 
-// Example of built-in middleware
-app.use(express.json()); // Parses incoming JSON requests
-app.use(express.urlencoded({
-    extended: true
-})); // Parses URL-encoded data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.post('/data', (req, res) => {
-    res.send(req.body);
+
+app.post('/example', (req, res) => {
+    console.log(req.body);
+    res.send('Data received!');
 });
 
 app.listen(3000, () => {
