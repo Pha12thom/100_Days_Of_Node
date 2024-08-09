@@ -17,16 +17,10 @@ app.get('/', (req, res) => {
     res.json(myProducts);
 });
 
-
-
-
 app.get('/products/:id', (req, res) => {
     const productId = req.params.id;
     const product = myProducts[productId - 1];
     res.json(product);
-
-
-
 });
 
 app.post('/products', (req, res) => {
