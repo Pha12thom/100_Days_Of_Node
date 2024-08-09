@@ -20,7 +20,7 @@ app.get('/products', (req, res) => {
 
 app.get('/products/:id', (req, res) => {
     const productId = req.params.id;
-    const product = myProducts[productId];
+    const product = myProducts[productId - 1];
     res.json(product);
 
 
@@ -36,14 +36,14 @@ app.post('/products', (req, res) => {
 app.put('/products/:id', (req, res) => {
     const productId = req.params.id;
     const updatedProduct = req.body;
-    myProducts[productId] = updatedProduct;
+    myProducts[productId - 1] = updatedProduct;
     res.json(updatedProduct);
 
 });
 
 app.delete('/products/:id', (req, res) => {
     const productId = req.params.id;
-    myProducts.splice(productId, 1);
+    myProducts.splice(productId - 1, 1);
     res.json(myProducts);
 });
 
