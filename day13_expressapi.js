@@ -8,6 +8,8 @@ myProducts = [
     { id: 1, name: 'shoe', description: 'black leather' },
     { id: 2, name: 'shirt', description: 'white shirt' },
     { id: 3, name: 'suit', description: 'black suit' },
+    { id: 4, name: 'book', description: '100 days of code' },
+    { id: 5, name: 'Necklace', description: 'Silver' },
 ];
 
 
