@@ -13,7 +13,7 @@ myProducts = [
 ];
 
 
-app.get('/products', (req, res) => {
+app.get('/', (req, res) => {
     res.json(myProducts);
 });
 
