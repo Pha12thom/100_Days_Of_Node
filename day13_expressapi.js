@@ -4,7 +4,7 @@ const app = express();
 const PORT = 3000;
 app.use(express.json());
 
-myproducts = [
+myProducts = [
     { id: 1, name: 'shoe', description: 'black leather' },
     { id: 2, name: 'shirt', description: 'white shirt' },
     { id: 3, name: 'suit', description: 'black suit' },
@@ -12,7 +12,7 @@ myproducts = [
 
 
 app.get('/products', (req, res) => {
-    res.json(myproducts);
+    res.json(myProducts);
 });
 
 
@@ -20,7 +20,7 @@ app.get('/products', (req, res) => {
 
 app.get('/products/:id', (req, res) => {
     const productId = req.params.id;
-    const product = myproducts[productId];
+    const product = myProducts[productId];
     res.json(product);
 
 
@@ -29,23 +29,25 @@ app.get('/products/:id', (req, res) => {
 
 app.post('/products', (req, res) => {
     const newProduct = req.body;
-    myproducts.push(newProduct);
+    myProducts.push(newProduct);
     res.json(newProduct);
 });
 
 app.put('/products/:id', (req, res) => {
     const productId = req.params.id;
     const updatedProduct = req.body;
+    myProducts[productId] = updatedProduct;
+    res.json(updatedProduct);
 
 });
 
 app.delete('/products/:id', (req, res) => {
     const productId = req.params.id;
-    // Logic to delete a specific product by ID from the database
-    // Return a success message as JSON response
+    myProducts.splice(productId, 1);
+    res.json(myProducts);
 });
 
-// Start the server
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
