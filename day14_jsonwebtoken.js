@@ -1,23 +1,10 @@
 const jwt = require('jsonwebtoken');
 const express = require('express');
 const router = express.Router();
-const students = [{
-        id: 1,
-        name: 'milugo Geofrey',
-        age: 21,
-        course: 'Mathematics and CCS',
-    },
-    {
-        id: 2,
-        name: 'John Doe',
-        age: 24,
-        course: 'CCS',
 
-    }
-];
+console.log(require('crypto').randomBytes(64).toString('hex'));
 
-require('dotenv').config();
-const secret = process.env.SECRET;
-router.get('/students/', (req, res) => {
-    res.json(students);
-});
+
+function generateAccessToken(username) {
+    return jwt.sign(username, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+}
