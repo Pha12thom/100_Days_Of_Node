@@ -16,4 +16,8 @@ const students = [{
     }
 ];
 
-require
+require('dotenv').config();
+const secret = process.env.SECRET;
+router.get('/students/', (req, res) => {
+    res.json(students);
+});

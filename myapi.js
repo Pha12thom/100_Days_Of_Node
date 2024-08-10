@@ -31,13 +31,10 @@ router.get('/students/:id', (req, res) => {
 
 });
 
-router.put('/students/student/', (req, res) => {
-
-    const updateStudent = req.body;
-    res.json(updateStudent);
-
-
-
+router.post('/students/', (req, res) => {
+    const student = req.body;
+    students.push(student);
+    res.send('student added');
 });
 
 module.exports = router;
