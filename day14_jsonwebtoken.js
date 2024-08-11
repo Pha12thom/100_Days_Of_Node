@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 const express = require('express');
 const app = express();
-app.use(express.json()); // To parse JSON bodies
+app.use(express.json());
 
 const students = [{
         id: 1,
