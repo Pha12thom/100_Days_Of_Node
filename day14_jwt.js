@@ -30,10 +30,24 @@ function authenticateToken(req, res, next) {
 }
 
 
-app.get('/posts', (req, res) => {
+app.get('/users', (req, res) => {
     res.json(users);
 });
 
+app.post('/login', async(req, res) => {
+    const { username, password } = req.body;
+    const user = users.find(u => u.username === username && u.password === password);
+    if (!user) return res.status(401).json({ message: 'Invalid credentials' });
+    const accessToken = generateAccessToken({ username: user.username });
+    res.json({ accessToken });
+});
+
+app.post('/register', async(req, res) => {
+    const { firstName, lastName, email, password } = req.body;
+    const user = { firstName, lastName, email, password };
+    users.push(user);
+    res.json({ message: 'User registered successfully' });
+});
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');

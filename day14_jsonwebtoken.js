@@ -53,6 +53,10 @@ app.get('/', (req, res) => {
     res.send(req.body.username);
 });
 
+require('crypto').randomBytes(64, (err, buf) => {
+    console.log(buf.toString('hex'));
+});
+
 // Start server
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
