@@ -34,12 +34,29 @@ app.post('/students', async(req, res) => {
     }
 });
 
+app.post('/login', async(req, res) => {
+    const { username, password } = req.body;
+    if (!username && !password) {
+        return res.status(400).json({ error: 'All fields are required' });
+    } else {
+        const student = await Student.findOne({ username, password });
+        if (student) {
+            res.status(200).json(student);
+        } else {
+            res.status(400).json({ error: 'Invalid credentials' });
+        }
+    }
+});
+
+
 app.post('/register', async(req, res) => {
     const { username, name, email, password, age } = req.body;
     if (!username && !name && !email && !password && !age) {
-
-
-
+        return res.status(400).json({ error: 'All fields are required' });
+    } else {
+        const student = new Student(req.body);
+        const savedStudent = await student.save();
+        res.status(201).send(savedStudent);
     }
 })
 
