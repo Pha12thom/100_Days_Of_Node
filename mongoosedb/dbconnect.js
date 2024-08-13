@@ -7,8 +7,11 @@ const models = require('./models/usermodel');
 app.use(express.json());
 app.use('/', models);
 
-mongoose.connect('mongodb://localhost:27017/users').then(() => {
+const db = mongoose.connect('mongodb://localhost:27017/users').then(() => {
     console.log('Connected to MongoDB');
 }).catch((error) => {
     console.error('Error connecting to MongoDB:', error);
 });
+
+
+models.exports = db;
