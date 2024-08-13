@@ -5,7 +5,7 @@ const router = express.Router();
 const app = express();
 
 
-const model = require('../models/usermodel');
+const model = require('./models/usermodel');
 app.use('/', model);
 
 app.use(express.json());
@@ -21,9 +21,9 @@ function generateToken(user) {
 function authenticateToken(req, res, next) {
     const token = req.headers['authorization'].split(' ')[1];
     if (!token)
-        return res.status(401).json({ message: 'Token not provided' });
+        return res.json({ message: 'Token not provided' });
     jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
-        if (err) return res.status(403).json({ message: 'Token is invalid' });
+        if (err) return res.json({ message: 'Token is invalid' });
         req.user = user;
         next();
     });
@@ -32,13 +32,13 @@ function authenticateToken(req, res, next) {
 const login = router.post('/login', async(req, res) => {
     const { username, password } = req.body;
     if (!username && !password) {
-        return res.status(400).json({ error: 'All fields are required' });
+        return res.json({ error: 'All fields are required' });
     } else {
         const user = await model.findOne({ username, password });
         if (user) {
-            res.status(200).json({ token: generateToken(user) });
+            res.json({ token: generateToken(user) });
         } else {
-            res.status(400).json({ error: 'Invalid credentials' });
+            res.json({ error: 'Invalid credentials' });
         }
     }
 });
@@ -47,11 +47,11 @@ const login = router.post('/login', async(req, res) => {
 const register = router.post('/register', async(req, res) => {
     const { username, name, email, password, age } = req.body;
     if (!username && !name && !email && !password && !age) {
-        return res.status(400).json({ error: 'All fields are required' });
+        return res.json({ error: 'All fields are required' });
     } else {
         const user = new model(req.body);
         const savedUser = await user.save();
-        res.status(201).send(savedUser);
+        res.send(savedUser);
     }
 });
 
