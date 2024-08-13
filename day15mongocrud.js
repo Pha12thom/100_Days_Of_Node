@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
-const jwt = require('jsonwebtoken');
-
 
 app.use(express.json());
+
 
 const studentSchema = new mongoose.Schema({
     username: String,
@@ -13,15 +12,25 @@ const studentSchema = new mongoose.Schema({
     email: String
 });
 
-const Student = mongoose.model('Student', studentSchema);
 
-mongoose.connect('mongodb://localhost:27017/students', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+const Student = mongoose.model('school', studentSchema);
+
+mongoose.connect('mongodb://localhost:27017/students').then(() => {
+    console.log('Connected to MongoDB');
+}).catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
 });
 
 
-
+app.post('/students', async(req, res) => {
+    try {
+        const student = new Student(req.body);
+        const savedStudent = await student.save();
+        res.status(201).send(savedStudent);
+    } catch (error) {
+        res.status(400).send(error);
+    }
+});
 
 
 app.listen(3000, () => {
