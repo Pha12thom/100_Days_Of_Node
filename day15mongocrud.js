@@ -34,6 +34,14 @@ app.post('/students', async(req, res) => {
     }
 });
 
+app.post('/register', async(req, res) => {
+    const { username, name, email, password, age } = req.body;
+    if (!username && !name && !email && !password && !age) {
+
+
+
+    }
+})
 
 app.get('/students', async(req, res) => {
     try {
