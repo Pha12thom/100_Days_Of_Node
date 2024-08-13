@@ -12,6 +12,3 @@ const db = mongoose.connect('mongodb://localhost:27017/users').then(() => {
 }).catch((error) => {
     console.error('Error connecting to MongoDB:', error);
 });
-
-
-models.exports = db;
