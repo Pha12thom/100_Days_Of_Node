@@ -1,9 +1,17 @@
 POST http://localhost:3000/students
 Content-Type: application/json
 
-{
-    "username": "johndoe",
-    "name": "John Doe",
-    "age": 21,
-    "email": "johndoe@example.com"
-}
+[
+    {
+        "username": "johndoe",
+        "name": "John Doe",
+        "age": 21,
+        "email": "johndoe@example.com"
+    },
+    {
+        "username": "john",
+        "name": "Johndee",
+        "age": 20,
+        "email": "johndoe@gmail.com"
+    }
+]
