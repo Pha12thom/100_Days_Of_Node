@@ -3,12 +3,13 @@ const jwt = require('jsonwebtoken');
 const express = require('express');
 const router = express.Router();
 const app = express();
+app.use(express.json());
 
 
 const model = require('../models/usermodel');
 app.use('/', model);
 
-app.use(express.json());
+
 
 console.log(crypto.randomBytes(64).toString('hex'));
 
@@ -54,6 +55,9 @@ const register = router.post('/register', async(req, res) => {
         res.status(201).send(savedUser);
     }
 });
+
+
+
 
 
 module.exports = register;

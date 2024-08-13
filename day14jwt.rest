@@ -1,6 +1,5 @@
-POST http://localhost:3000/students
+POST http://localhost:3000/register
 Content-Type: application/json
-
 [
     {
         "username": "johndoe",
@@ -9,11 +8,4 @@ Content-Type: application/json
         "email": "johndoe@gmail.com",
         "password": "milugo45"
     },
-    {
-        "username": "john",
-        "name": "Johndee",
-        "age": 20,
-        "email": "johndoe@gmail.com",
-        "password": "milugo123"
-    }
 ]
