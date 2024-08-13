@@ -6,12 +6,14 @@ Content-Type: application/json
         "username": "johndoe",
         "name": "John Doe",
         "age": 21,
-        "email": "johndoe@example.com"
+        "email": "johndoe@gmail.com",
+        "password": "milugo45"
     },
     {
         "username": "john",
         "name": "Johndee",
         "age": 20,
-        "email": "johndoe@gmail.com"
+        "email": "johndoe@gmail.com",
+        "password": "milugo123"
     }
 ]

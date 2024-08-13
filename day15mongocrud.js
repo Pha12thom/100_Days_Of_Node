@@ -9,7 +9,9 @@ const studentSchema = new mongoose.Schema({
     username: String,
     name: String,
     age: Number,
-    email: String
+    email: String,
+    password: String,
+
 });
 
 
