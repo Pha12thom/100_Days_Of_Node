@@ -23,9 +23,16 @@ const create = async(req, res) => {
 
 
 
+
+
 const fetch = async(req, res) => {
     try {
-        res.json("helllo mongo db");
+        const User = new User(req.body);
+        const userExists = await User.find(User);
+        if (userExists.length == 0) {
+            res.status(404).json({ message: "user not found" })
+        }
+        res.status(200).json(userExists);
 
     } catch (error) {
         res.status(500).json({ error: "internal server error" });
