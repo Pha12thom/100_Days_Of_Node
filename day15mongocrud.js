@@ -5,8 +5,8 @@ const router = express.Router();
 const app = express();
 
 
-const model = require('./models/usermodel');
-app.use('/', model);
+const User = require('./models/usermodel');
+app.use('/', User);
 
 app.use(express.json());
 
@@ -34,7 +34,7 @@ const login = router.post('/login', async(req, res) => {
     if (!username && !password) {
         return res.json({ error: 'All fields are required' });
     } else {
-        const user = await model.findOne({ username, password });
+        const user = await User.findOne({ username, password });
         if (user) {
             res.json({ token: generateToken(user) });
         } else {
@@ -49,7 +49,7 @@ const register = router.post('/register', async(req, res) => {
     if (!username && !name && !email && !password && !age) {
         return res.json({ error: 'All fields are required' });
     } else {
-        const user = new model(req.body);
+        const user = new User(req.body);
         const savedUser = await user.save();
         res.send(savedUser);
     }
