@@ -1,22 +1,27 @@
 const express = require('express');
 const app = express();
-const fs = require('fs');
+
+app.use(express.json());
 
 
-const data = fs.readFileSync('day6node.txt', 'utf-8');
-app.get('/', (req, res) => {
+app.get('/api/triggerError', (req, res, next) => {
+    next(new Error('Intentional Error'));
+});
 
-        const data = fs.readFileSync('day6node.md', 'utf-8');
-        try {
 
-            res.end(data);
-        } catch (error) {
-            res.end(error);
-        }
-    }
+app.use((req, res, next) => {
+    res.status(404).json({ message: 'Resource not found' });
+});
 
-);
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ message: 'Internal Server Error' });
+});
+
+
+
 
 app.listen(3000, () => {
-    console.log("server running on port 3000")
-})
+    console.log('Server is running on port 3000');
+});

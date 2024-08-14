@@ -52,7 +52,7 @@ const register = router.post('/register', async(req, res) => {
     } else {
         const user = new model(req.body);
         const savedUser = await user.save();
-        res.status(201).send(savedUser);
+        res.status(201).json(savedUser);
     }
 });
 
