@@ -21,4 +21,6 @@
 ### Day 15: **MongoDB and CRUD Operations**
 - **Day 15:** Learn and implement CRUD operations using MongoDB with Node.js, integrating it with JWT authentication.
 
+###Day 16: **express error handling middlewares**
+-Day16: **implement express error middlewares in your app
 ---
