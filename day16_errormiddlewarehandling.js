@@ -4,7 +4,7 @@ const app = express();
 app.use(express.json());
 
 
-app.get('/api/triggerError', (req, res, next) => {
+app.get('/api/err', (req, res, next) => {
     next(new Error('Intentional Error'));
 });
 
