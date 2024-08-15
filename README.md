@@ -23,4 +23,7 @@
 
 ### Day 16: **express error handling middlewares**
 - Day16: implement express error middlewares in your app
+
+### Day 17: **Basic passwd, username Auth**
+- Day17: Implement basic auth for username and password.
 ---
