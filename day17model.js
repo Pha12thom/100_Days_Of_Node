@@ -1,9 +1,10 @@
-const mongoose = require('mongoose');
-const express = require('express');
+import mongoose from 'mongoose';
+import express from 'express';
+
 const app = express();
 const router = express.Router();
 
-const User = mongoose.Schema({
+const UserSchema = new mongoose.Schema({
     name: {
         required: true,
         type: String
@@ -27,8 +28,6 @@ const User = mongoose.Schema({
     },
 });
 
+const UserModel = mongoose.model('User', UserSchema);
 
-const UserModel = mongoose.model('User', User);
-
-
-module.exports = UserModel;
+export default UserModel;

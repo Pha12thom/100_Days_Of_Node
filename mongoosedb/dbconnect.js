@@ -8,6 +8,7 @@ const login = require('../jwt/jwt');
 
 app.use('/', register);
 app.use('/', login);
+app.use('/', controller);
 
 app.use(express.json());
 app.use('/', models);

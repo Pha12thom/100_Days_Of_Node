@@ -1,5 +1,6 @@
-const User = require('./day17model.js');
-const express = require('express');
+import User from './day17model.js';
+import express from 'express';
+
 const app = express();
 const router = express.Router();
 
@@ -38,5 +39,4 @@ const login = async(req, res) => {
 }
 
 
-module.exports = register;
-module.exports = login;
+export { login, register };

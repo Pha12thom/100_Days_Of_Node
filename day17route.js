@@ -1,9 +1,11 @@
-const express = require('express');
+import express from 'express';
+import { register, login } from './day17controller.js';
+
 const app = express();
 const router = express.Router();
-const controller = require('./day17controller.js');
 
+router.use(express.json());
+router.post('/register', register);
+router.post('/login', login);
 
-app.use(express.json());
-app.use('/', controller.register);
-app.use('/login', controller.login);
+export default router;
