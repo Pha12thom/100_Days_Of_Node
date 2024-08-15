@@ -1,7 +1,8 @@
 import User from './day17model.js';
 import express from 'express';
+import jwt from 'jsonwebtoken';
 
-const app = express();
+
 const router = express.Router();
 
 router.use(express.json());
@@ -33,6 +34,9 @@ const login = async(req, res) => {
         if (!userExists) {
             return res.status(400).json({ message: "user not found" });
         }
+        const token = jwt.sign({ username: userExists.username }, process.env.SECRET_TOKEN, { expiresIn: '1h' });
+
+
         res.status(200).json({ message: "user found", userExists });
 
     } catch (error) {
