@@ -37,7 +37,7 @@ const login = async(req, res) => {
         const token = jwt.sign({ username: userExists.username }, process.env.SECRET_TOKEN, { expiresIn: '1h' });
 
 
-        res.status(200).json({ message: "user found", userExists });
+        res.status(200).json({ message: "user found", userExists, token });
 
     } catch (error) {
         res.status(500).json({ error: "internal server error" });
