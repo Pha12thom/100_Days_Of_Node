@@ -5,7 +5,5 @@ const controller = require('./day17controller.js');
 
 
 app.use(express.json());
-app.use('/', controller);
-
-
-app.get('/', (req, res) => {
+app.use('/', controller.register);
+app.use('/login', controller.login);
