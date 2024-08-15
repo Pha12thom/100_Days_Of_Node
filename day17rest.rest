@@ -1,0 +1,10 @@
+post http://localhost:3000/register
+content-Content-Type: application/json
+
+{
+    "name": "milugo geofrey",
+    "username": "milugo",
+    "email": "milugo@gmail.com",
+    "password": "milugo12"
+   
+}

@@ -4,6 +4,8 @@ import express from 'express';
 const app = express();
 const router = express.Router();
 
+router.use(express.json());
+
 
 
 const register = async(req, res) => {

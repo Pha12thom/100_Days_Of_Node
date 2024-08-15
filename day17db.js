@@ -5,7 +5,7 @@ const app = express();
 
 
 app.use('/', router);
-app.use(express.json());
+router.use(express.json());
 
 mongoose.connect('mongodb://localhost:27017/day17db').then(() => {
     console.log('connected to database');
