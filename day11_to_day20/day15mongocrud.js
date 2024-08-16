@@ -5,7 +5,7 @@ const router = express.Router();
 const app = express();
 
 
-const User = require('./models/usermodel');
+const User = require('../models/usermodel');
 app.use('/', User);
 
 app.use(express.json());
