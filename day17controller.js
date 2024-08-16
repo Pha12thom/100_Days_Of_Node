@@ -1,13 +1,11 @@
 import User from './day17model.js';
 import express from 'express';
 import jwt from 'jsonwebtoken';
-
+import bcrypt from 'bcrypt';
 
 const router = express.Router();
 
 router.use(express.json());
-
-
 
 const register = async(req, res) => {
     try {
@@ -17,6 +15,8 @@ const register = async(req, res) => {
         if (userExists) {
             return res.status(400).json({ message: "user already exists" });
         }
+        const hashedPassword = await bcrypt.hash(newUser.password, 10);
+        newUser.password = hashedPassword;
         const savedUser = await newUser.save();
         res.status(200).json(savedUser);
 
