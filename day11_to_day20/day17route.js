@@ -1,5 +1,5 @@
 import express from 'express';
-import { register, login } from './day17controller.js';
+import { register, login } from '../day17controller.js';
 
 const app = express();
 const router = express.Router();
