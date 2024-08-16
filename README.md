@@ -1,15 +1,17 @@
 ## welcome to 100 days od node.js solutions. to navigate to files. go to each folder with the name and days of files it entail. e.g
-day2_day10/
-├── day2node.js
-├── day3node.js
-├── ...
-└── day10node.js
+<pre>
+<span style="color: red;">day2_day10/</span>
+├── <span style="color: blue;">day2node.js</span>
+├── <span style="color: blue;">day3node.js</span>
+├── <span style="color: blue;">...</span>
+└── <span style="color: blue;">day10node.js</span>
 
-day11_day20/
-├── day11.js
-├── day12.js
-├── ...
-└── day20.js
+<span style="color: red;">day11_day20/</span>
+├── <span style="color: blue;">day11.js</span>
+├── <span style="color: blue;">day12.js</span>
+├── <span style="color: blue;">...</span>
+└── <span style="color: blue;">day20.js</span>
+</pre>
 
 
 
