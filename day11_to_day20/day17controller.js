@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:day11_to_day20/day17controller.js
 import User from '../day17model.js';
+========
+import User from './day11_to_day20/day17model.js';
+>>>>>>>> main:day17controller.js
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
