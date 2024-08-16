@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
 import route from "./day18_cookies.js";
 import express from "express";
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 const app = express();
 

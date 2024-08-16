@@ -4,6 +4,9 @@ import { v4 as uuidv4 } from 'uuid';
 import User from '../models/usermodel.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 const route = express.Router();
 const sessions = {};
@@ -36,25 +39,26 @@ route.post('/login', async(req, res) => {
     const { username, password } = req.body;
     try {
         const userExist = await User.findOne({ username });
-        if (userExist) {
-            const validPassword = await bcrypt.compare(password, userExist.password);
-            if (validPassword) {
-                const token = jwt.sign({ username }, process.env.SECRET_TOKEN, { expiresIn: '1h' });
-                const sessionId = uuidv4();
-                sessions[sessionId] = { username, token };
-                res.cookie('sessionId', sessionId, { httpOnly: true });
-                res.cookie('token', token, { httpOnly: true });
-                res.status(200).json({ message: 'Logged in' });
-            } else {
-                res.status(401).json({ message: 'Invalid credentials' });
-            }
+        if (!userExist) {
+            return res.status(401).json({ message: 'Invalid credentials' });
+        }
+        const validPassword = await bcrypt.compare(password, userExist.password);
+        if (validPassword) {
+            const token = jwt.sign({ username }, process.env.SECRET_TOKEN, { expiresIn: '1h' });
+            const sessionId = uuidv4();
+            sessions[sessionId] = { username, token };
+            res.cookie('sessionId', sessionId, { httpOnly: true });
+            res.cookie('token', token, { httpOnly: true });
+            return res.status(200).json({ message: 'Logged in successfully', token });
         } else {
-            res.status(401).json({ message: 'Invalid credentials' });
+            return res.status(401).json({ message: 'Invalid credentials' });
         }
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
+        console.error('Error during login:', error);
+        return res.status(500).json({ message: 'Internal server error' });
     }
 });
+
 
 
 export default route;
