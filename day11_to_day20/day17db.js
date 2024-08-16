@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import express from 'express';
-import router from './day17route.js';
+import router from '../day17route.js';
 const app = express();
 
 
