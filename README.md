@@ -1,4 +1,11 @@
+## welcome to 100 days od node.js solutions. to navigate to files. go to each folder with the name and days of files it entail. e.g
+----day2_day10
+--------day2node.js
+--------day3node.js
+----day11_20
+--------day11.js
 
+## Here are the challenges descriptions.
 ### Day 1-5: **Introduction to Node.js**
 - **Day 1-2:** Learn and explore basic Node.js concepts, console methods, and asynchronous operations.
 - **Day 3-5:** File handling, including reading and writing files using Node.js.
