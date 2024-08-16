@@ -27,7 +27,7 @@ route.post('/register', async(req, res) => {
         const savedUser = await newUser.save();
         return res.status(200).json(savedUser);
     } catch (error) {
-        console.error('Error during registration:', error); // Log the error
+        console.error('Error during registration:', error); 
         return res.status(500).json({ message: 'Internal server error' });
     }
 });
