@@ -1,11 +1,7 @@
-<<<<<<<< HEAD:day11_to_day20/day17controller.js
-import User from '../day17model.js';
-========
-import User from './day11_to_day20/day17model.js';
->>>>>>>> main:day17controller.js
 import express from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
+import User from './day11_to_day20/day17model.js';
 
 const router = express.Router();
 
@@ -29,8 +25,6 @@ const register = async(req, res) => {
     }
 }
 
-
-
 const login = async(req, res) => {
     try {
         const { username, password } = req.body;
@@ -45,6 +39,5 @@ const login = async(req, res) => {
         res.status(500).json({ error: "internal server error" });
     }
 }
-
 
 export { login, register };
