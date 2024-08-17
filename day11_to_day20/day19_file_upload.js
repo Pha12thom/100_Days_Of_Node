@@ -1,30 +1,55 @@
 import express from 'express';
 import multer from 'multer';
-import path from 'path';
-import User from './day19model';
+import mongoose from 'mongoose';
+import User from './day19model.js';
+
 const app = express();
+app.use(express.json());
 
 const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, 'uploads/')
+    destination: (req, file, cb) => {
+        cb(null, 'uploads/');
     },
-    filename: function(req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now())
+    filename: (req, file, cb) => {
+        cb(null, `${Date.now()}-${file.originalname}`);
     }
 });
 
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
 
-app.post('/upload', upload.single('file'), (req, res) => {
-    res.send('File uploaded');
+app.post('/register', upload.single('avatar'), async(req, res) => {
+    try {
+        const { name, username, email, password } = req.body;
+        const avatar = req.file ? req.file.path : null;
+        const userExists = await User.findOne({ $or: [{ username }, { email }] });
+        if (userExists) {
+            return res.status(400).json({ message: "User already exists" });
+        }
+
+
+        const newUser = new User({
+            name,
+            username,
+            email,
+            avatar,
+            password
+        });
+
+
+        const savedUser = await newUser.save();
+        res.status(201).json(savedUser);
+
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error", error });
+    }
 });
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
-
-
-app.listen(3000, () => {
-    console.log('Server started on http://localhost:3000');
-});
+mongoose.connect('mongodb://localhost:27017/yourDatabaseName')
+    .then(() => {
+        console.log('Connected to MongoDB');
+        app.listen(3000, () => {
+            console.log('Server is running on port 3000');
+        });
+    })
+    .catch((error) => console.error('Failed to connect to MongoDB', error));
