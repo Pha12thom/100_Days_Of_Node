@@ -1,11 +1,22 @@
 import express from 'express';
 import multer from 'multer';
-
-
-const upload = multer({ dest: 'uploads/' });
+import path from 'path';
+import User from './day19model';
 const app = express();
 
-app.post('/upload', upload.single('avatar'), (req, res) => {
+const storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, 'uploads/')
+    },
+    filename: function(req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now())
+    }
+});
+
+const upload = multer({ storage: storage });
+
+
+app.post('/upload', upload.single('file'), (req, res) => {
     res.send('File uploaded');
 });
 
