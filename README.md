@@ -1,4 +1,4 @@
-## welcome to 100 days od node.js solutions. to navigate to files. go to each folder with the name and days of files it entail. e.g
+## welcome to 100 days od node.js. to navigate files go to each folder with the name and days of files entailed. e.g
 <pre>
 <span style="color: red;">day2_day10/</span>
 ├── <span style="color: blue;">day2node.js</span>
