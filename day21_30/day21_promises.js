@@ -9,7 +9,7 @@ app.use(express.json());
 
 app.use(router);
 
-const PORT = process.env.PORT;
+const PORT = 3000;
 
 mongoose.connect('mongodb://localhost:27017/students').then(() => {
     app.listen(PORT, () => {
