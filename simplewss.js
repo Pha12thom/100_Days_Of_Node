@@ -1,8 +1,4 @@
-import express from 'express';
-import http from 'http';
 import { WebSocketServer } from "ws";
-import path from 'path';
-import { fileURLToPath } from "url";
 
 const wss = new WebSocketServer({ port: 3000 });
 
