@@ -55,6 +55,7 @@
 
 ### Day 21: **nodejs promises**
 - Day 21: implement node promises
+
 ### Day 22: **nodejs websocket**
--Day 22: nodejs websockets.
+- Day 22: nodejs websockets.
 ---
