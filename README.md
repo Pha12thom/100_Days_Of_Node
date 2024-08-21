@@ -50,5 +50,9 @@
 ### Day 19: **file uploads**
 - Day 19: upload files in express app
 
-### Day 20:
+### Day 20: **.env variables**
+- Day 20: implement nodejs environment variables.
+
+### Day 21: **nodejs promises**
+- Day 21: implement node promises
 ---
