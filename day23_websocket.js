@@ -19,8 +19,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-wss.on('connection', function connection(ws) {
-    ws.on('message', function incoming(data) {
+wss.on('connection', (ws) => {
+    ws.on('message', (data) => {
         wss.clients.forEach(function each(client) {
             if (client !== ws && client.readyState === WebSocket.OPEN) {
                 client.send(data);
