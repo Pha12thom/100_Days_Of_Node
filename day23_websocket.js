@@ -1,11 +1,22 @@
 import express from 'express';
 import http from 'http';
-import WebSocket from 'ws';
+import { WebSocketServer } from "ws";
+import path from 'path';
+
 
 const port = 3000;
 const app = express();
 const server = http.createServer(app);
-const wss = new WebSocket.Server({ server })
+const wss = new WebSocketServer({ noServer: true });
+
+
+const __filename = fileURLToPath(
+    import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 wss.on('connection', function connection(ws) {
     ws.on('message', function incoming(data) {
