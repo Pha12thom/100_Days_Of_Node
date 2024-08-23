@@ -1,34 +1,44 @@
 [{
         "id": 1,
+
         "status": "sold",
+
         "name": "shoe",
         "price": 10.99,
         "date_of_sale": "2022-01-01"
     },
     {
         "id": 2,
+
         "status": "paid",
+
         "name": "cup",
         "price": 19.99,
         "date_of_sale": "2022-01-02"
     },
     {
         "id": 3,
+
         "status": "sold",
+
         "name": "bread",
         "price": 5.99,
         "date_of_sale": "2022-01-03"
     },
     {
         "id": 4,
+
         "status": "loan",
+
         "name": "python",
         "price": 14.99,
         "date_of_sale": "2022-01-04"
     },
     {
         "id": 5,
+
         "status": "available",
+
         "name": "coffee",
         "price": 8.99,
         "date_of_sale": "2022-01-05"
