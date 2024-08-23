@@ -48,10 +48,6 @@ const login = async(req, res) => {
     }
 };
 
-<<
-<< << < HEAD
-export { register, login }; ===
-=== =
 const logout = async(req, res) => {
     try {
         res.clearCookie("sessionId");
@@ -64,5 +60,4 @@ const logout = async(req, res) => {
 };
 
 
-export { register, login, logout }; >>>
->>> > upd
+export { register, login, logout };
