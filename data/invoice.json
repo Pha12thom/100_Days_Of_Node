@@ -7,7 +7,7 @@
     },
     {
         "id": 2,
-        "status": "sold",
+        "status": "paid",
         "name": "cup",
         "price": 19.99,
         "date_of_sale": "2022-01-02"
