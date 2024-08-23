@@ -13,4 +13,6 @@
 
 ### Day 17: **Basic passwd, username Auth**
 - Day17: Implement basic auth for username and password.
+### Day 18: node js cookies
+- add nodejs cookies to your app.
 ---
