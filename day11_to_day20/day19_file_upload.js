@@ -45,7 +45,7 @@ app.post('/register', upload.single('avatar'), async(req, res) => {
     }
 });
 
-mongoose.connect('mongodb://localhost:27017/yourDatabaseName')
+mongoose.connect('mongodb://localhost:27017/mydb')
     .then(() => {
         console.log('Connected to MongoDB');
         app.listen(3000, () => {
