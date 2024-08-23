@@ -1,11 +1,10 @@
-import { CronJob } from 'cron';
+import express from 'express';
+import task from './crontask1.js';
 
-const job = new CronJob(
-    '* * * * * *', // cronTime
-    function() {
-        console.log('You will see this message every second');
-    }, // onTick
-    null, // onComplete
-    true, // start
-    'America/Los_Angeles' // timeZone
-);
+const app = express();
+
+app.use(express.json());
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
