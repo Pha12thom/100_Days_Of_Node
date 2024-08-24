@@ -8,8 +8,6 @@ const archiveInvoice = () => {
 
 
     const filteredInvoices = invoices.filter((invoice) => invoice.status === "sold");
-
-    // filter invoices to file
     const filteredInvoicesPath = path.join(__dirname, "data", "myfiltered-invoice.json");
     fs.writeFileSync(filteredInvoicesPath, JSON.stringify(filteredInvoices));
 
