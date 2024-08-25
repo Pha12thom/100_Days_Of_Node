@@ -4,7 +4,7 @@
     "main": "day4node.js",
     "type": "module",
     "scripts": {
-        "test": "nodemon simplewss.js"
+        "test": "export NODE_ENV=test && nodemon --exec 'mocha */**.test.js'"
     },
     "keywords": [],
     "author": "",
@@ -13,6 +13,7 @@
     "dependencies": {
         "bcrypt": "^5.1.1",
         "bcryptjs": "^2.4.3",
+        "chai-http": "^5.0.0",
         "cookie-parser": "^1.4.6",
         "cron": "^3.1.7",
         "dotenv": "^16.4.5",
@@ -29,6 +30,10 @@
     },
     "devDependencies": {
         "@types/express": "^4.17.21",
-        "@types/ws": "^8.5.12"
+        "@types/ws": "^8.5.12",
+        "chai": "^5.1.1",
+        "mocha": "^10.7.3",
+        "nodemon": "^3.1.4",
+        "supertest": "^7.0.0"
     }
 }
