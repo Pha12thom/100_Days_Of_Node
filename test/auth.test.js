@@ -8,7 +8,7 @@ import User from './day21_30/models/usermodel.js';
 describe('POST /register', ()=> {
     let mongoServer;
 
-    before(async function() {
+    before(async()=> {
         mongoServer = await MongoMemoryServer.create();
         const uri = mongoServer.getUri();
         await mongoose.connect(uri);
