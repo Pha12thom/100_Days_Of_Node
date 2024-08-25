@@ -31,7 +31,7 @@ describe('POST /register', function() {
             name: 'milugo',
             age: 25,
             email: 'milugo@gmail.com',
-            password: 'password123'
+            password: 'Mypasswordis123'
         };
         const res = await request(app).post('/register').send(userData);
 
