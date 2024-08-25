@@ -1,16 +1,19 @@
-import { expect } from 'chai';
-import { describe, it } from 'mocha';
+// test/test.js
+const { expect } = require('chai');
 
-function add(a, b) {
-    return a + b;
+// Function to test
+function fetchData(callback) {
+    setTimeout(() => {
+        callback('data');
+    }, 1000);
 }
 
-describe('Addition', function() {
-    it('should return 4 when adding 2 and 2', function() {
-        expect(add(2, 2)).to.equal(4);
-    });
-
-    it('should return 0 when adding 2 and -2', function() {
-        expect(add(2, -2)).to.equal(0);
+// Asynchronous test
+describe('fetchData', function() {
+    it('should return data after 1 second', function(done) {
+        fetchData(function(data) {
+            expect(data).to.equal('data');
+            done(); // Indicates the test is complete
+        });
     });
 });
