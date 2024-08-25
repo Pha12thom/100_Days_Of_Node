@@ -5,7 +5,7 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import app from './day21_30/app.js';
 import User from './day21_30/models/usermodel.js';
 
-describe('POST /register', function() {
+describe('POST /register', ()=> {
     let mongoServer;
 
     before(async function() {
@@ -14,18 +14,18 @@ describe('POST /register', function() {
         await mongoose.connect(uri);
     });
 
-    after(async function() {
+    after(async()=> {
         await mongoose.connection.dropDatabase();
         await mongoose.connection.close();
         await mongoServer.stop();
     });
 
     //clear my test db before each test
-    beforeEach(async function() {
+    beforeEach(async()=> {
         await User.deleteMany({});
     });
 
-    it(' registers new user', async function() {
+    it(' registers new user', async()=> {
 
         const userData = {
             name: 'milugo',
