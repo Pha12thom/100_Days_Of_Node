@@ -2,30 +2,30 @@ import mongoose from 'mongoose';
 import { expect } from 'chai';
 import request from 'supertest';
 import { MongoMemoryServer } from 'mongodb-memory-server';
-import app from './day21_30/app.js';
-import User from './day21_30/models/usermodel.js';
+import app from '../day21_30/app.js';
+import User from '../day21_30/models/usermodel.js';
 
-describe('POST /register', ()=> {
+describe('POST /register', () => {
     let mongoServer;
 
-    before(async()=> {
+    before(async() => {
         mongoServer = await MongoMemoryServer.create();
         const uri = mongoServer.getUri();
         await mongoose.connect(uri);
     });
 
-    after(async()=> {
+    after(async() => {
         await mongoose.connection.dropDatabase();
         await mongoose.connection.close();
         await mongoServer.stop();
     });
 
     //clear my test db before each test
-    beforeEach(async()=> {
+    beforeEach(async() => {
         await User.deleteMany({});
     });
 
-    it(' registers new user', async()=> {
+    it(' registers new user', async() => {
 
         const userData = {
             name: 'milugo',
