@@ -20,7 +20,7 @@ describe('POST /register', function() {
         await mongoServer.stop();
     });
 
-    //clear db before each test
+    //clear my test db before each test
     beforeEach(async function() {
         await User.deleteMany({});
     });
