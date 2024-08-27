@@ -2,9 +2,19 @@ function add(a, b) {
     return a + b;
 }
 
-function main() {
-    const result = add(5, 3);
-    console.log('Result:', result);
+function subtract(a, b) {
+    return a - b;
 }
 
-main();
+function calculate() {
+    let x = 10;
+    let y = 5;
+
+    let sum = add(x, y);
+    console.log('Sum:', sum);
+
+    let difference = subtract(x, y);
+    console.log('Difference:', difference);
+}
+
+calculate();
