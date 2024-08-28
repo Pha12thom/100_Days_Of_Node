@@ -6,7 +6,7 @@ const app = express();
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.send('Hello, Wellcome to expresss router');
+    res.send('day 27 expresss router');
 });
 
 router.get('/about', (req, res) => {
