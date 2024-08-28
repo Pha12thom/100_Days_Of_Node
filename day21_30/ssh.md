@@ -67,13 +67,7 @@
 
 ### **Edit the Conflicted File**
 1. **Identify the conflict markers** in the conflicted file (`package.json`):
-   ```diff
-   <<<<<<< HEAD
-   // Your changes
-   =======
-   // Incoming changes
-   >>>>>>> origin/upd
-   ```
+
 
 2. **Edit the file** to resolve conflicts, remove conflict markers, and save the file.
 
