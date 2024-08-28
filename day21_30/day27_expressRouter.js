@@ -1,4 +1,5 @@
 import express from 'express';
+import User from './day27model';
 
 const app = express();
 
@@ -13,7 +14,13 @@ router.get('/about', (req, res) => {
 });
 
 router.get('/user/:id', (req, res) => {
-    res.send('User page');
+    const id = req.params.id;
+    User.findById(id, (err, user) => {
+        if (err) {
+            res.status(500).send(err);
+        }
+        res.status(200).send(user);
+    })
 });
 
 
