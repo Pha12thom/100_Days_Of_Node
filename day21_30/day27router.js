@@ -1,4 +1,4 @@
-import router from '/day27_expressRouter.js';
+import router from './day27_expressRouter.js';
 import express from 'express';
 
 const app = express();
