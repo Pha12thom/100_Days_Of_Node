@@ -1,9 +1,9 @@
 import express from 'express';
-import User from './day27model';
+import User from './day27model.js';
 
 const app = express();
 
-const router = app.Router();
+const router = express.Router();
 
 router.get('/', (req, res) => {
     res.send('Hello, Wellcome to expresss router');
@@ -25,4 +25,4 @@ router.get('/user/:id', (req, res) => {
 
 
 
-module.exports = router;
+export default router;

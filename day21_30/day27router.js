@@ -1,5 +1,6 @@
-import router from 'day27_expressRouter';
+import router from 'day27_expressRouter.js';
 
+const app = express();
 app.use('/api', router);
 
 
