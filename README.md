@@ -61,5 +61,5 @@
 ### Day 23: Node js Cron jobs
 - Day 23: implement a cron task in node js.
 
-###,Day 24: **
+### Day 24: **Test using mocha and chai**
 ---
