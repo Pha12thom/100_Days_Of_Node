@@ -11,6 +11,7 @@
 ├── <span style="color: blue;">day12.js</span>
 ├── <span style="color: blue;">...</span>
 └── <span style="color: blue;">day20.js</span>
+└── <span style="color: blue;">day20.js</span>
 </pre>
 
 
@@ -59,4 +60,7 @@
 ### Day 22: **nodejs websocket**
 - Day 22: nodejs websockets.
 ### Day 23: Node js Cron jobs
+- Day 23: implement a cron task in node js.
+
+### Day 24: **Test using mocha and chai**
 ---
