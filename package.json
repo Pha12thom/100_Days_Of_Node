@@ -26,6 +26,7 @@
         "node-cron": "^3.0.3",
         "shelljs": "^0.8.5",
         "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^5.0.1",
         "uuid": "^10.0.0",
         "websocket": "^1.0.35",
         "ws": "^8.18.0"
