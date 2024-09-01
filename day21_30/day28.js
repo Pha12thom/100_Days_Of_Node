@@ -22,4 +22,4 @@ function authenticateToken(req, res, next) {
     });
 }
 
-app.post()
+app.get()
