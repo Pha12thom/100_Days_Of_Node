@@ -19,7 +19,7 @@ const swaggerOptions = {
             url: 'http://localhost:3000'
         }],
     },
-    apis: ['./day29_swagger.js'], // Path to your API docs
+    apis: ['./day29_swagger.js'],
 };
 
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
@@ -39,7 +39,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 /**
  * @swagger
  * /register:
- *   post:
+ *   get:
  *     summary: Register a new user
  *     description: Use to register a new user
  *     responses:
