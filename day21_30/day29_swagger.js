@@ -13,7 +13,9 @@ const swaggerOptions = {
             contact: {
                 name: 'Amazing Developer'
             },
-            servers: ['http://localhost:3000']
+            servers: {
+                url: 'http://localhost:3000'
+            }
         }
     },
     apis: ['./day29_swagger.js']
@@ -22,3 +24,8 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+
+
+app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+});
