@@ -10,7 +10,7 @@ const typeDefs = gql `
 
 const resolvers = {
     Query: {
-        hello: () => 'Hello, graphql!',
+        hello: () => 'Hello, ths is my graphql!',
     },
 };
 
