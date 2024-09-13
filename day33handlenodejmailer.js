@@ -4,8 +4,8 @@ import express from "express";
 const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: 'geofreymilugo@gmail.com',
-        pass: 'nrmxixzytslzowit',
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD,
     }
 
 });
