@@ -20,11 +20,6 @@ const create = async(req, res) => {
 }
 
 
-
-
-
-
-
 const fetch = async(req, res) => {
     try {
         const User = new User(req.body);
