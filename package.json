@@ -1,8 +1,7 @@
 {
     "name": "100_days_of_node",
     "version": "1.0.0",
-    "main": "day4node.js",
-    "type": "module",
+    "main": "app.js",
     "scripts": {
         "test": "mocha"
     },
@@ -14,13 +13,16 @@
         "apollo-server": "^3.13.0",
         "bcrypt": "^5.1.1",
         "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.3",
         "chai-http": "^5.0.0",
+        "connect-flash": "^0.1.1",
         "cookie-parser": "^1.4.6",
         "cors": "^2.8.5",
         "cron": "^3.1.7",
         "debug": "^4.3.6",
         "dotenv": "^16.4.5",
-        "express": "^4.19.2",
+        "ejs": "^3.1.10",
+        "express": "^4.21.1",
         "express-session": "^1.18.1",
         "graphql": "^16.9.0",
         "jsonwebtoken": "^9.0.2",
